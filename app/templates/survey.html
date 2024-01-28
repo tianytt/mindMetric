@@ -1,0 +1,22 @@
+
+
+<!-- survey.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>成人依恋量表调查</title>
+</head>
+<body>
+    <h1>成人依恋量表调查</h1>
+    <form action="/survey" method="POST"> 
+      {% for index, question in questions %}  
+            <p>问题 {{index + 1}} : {{ question }}</p>
+            {% for option in options %}
+                <input type="radio" name="response-{{ index }}" value="{{ loop.index0 + 1 }}"> {{ option }}
+            {% endfor %}
+            <br>
+        {% endfor %}
+        <input type="submit" value="提交">
+    </form>
+</body>
+</html>
